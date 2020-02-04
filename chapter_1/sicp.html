@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Структура и интерпретация компьютерных программ</title>
+        <style>
+        * {
+            box-sizing: border-box;
+        }
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+        /* display: none; <- Crashes Chrome on hover */
+        -webkit-appearance: none;
+        margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+        }
+        input[type="number"] {
+            width: 20px;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        input[placeholder="x"] {
+            margin-top: 30px;
+        }
+        #exp {
+            width: 250px;
+            min-height: 50px;
+            border-radius: 10px;
+            background-color: seagreen;
+            color: white;
+            font-size: 22px;
+            text-shadow: 1px 1px 1px black;
+            border: none;
+            box-shadow: 3px 3px 3px rgba(0,0,0,.7);
+            margin-bottom: 5px;
+            margin-top: 10px;
+            text-align: center;
+            padding-top:14px;
+        }
+        p {
+            display: inline-block;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="exp">Возведение в степень</div>
+        <div>
+            <input type="number" placeholder="x">
+            <sup><input type="number" placeholder="n"></sup><b> =</b>
+        <script>
+
+            function fast_exp(b,n) {
+                var message = n==0n? 1n:
+                n%2n==0n? double(fast_exp(b,n/2n)):
+                b*fast_exp(b,n-1n);
+                return message;
+            }
+            function double(x) {
+                return x*x;
+            }
+            function double(x) {
+                return x*x;
+            }
+        </script>
+            <p id="result"></p>
+            <button onclick="
+            document.getElementById('result').innerHTML=
+                fast_exp(BigInt(document.getElementsByTagName('input')[0].value),
+                         BigInt(document.getElementsByTagName('input')[1].value))
+            ">Вычислить</button>
+        </div>
+    </body>
+</html>
